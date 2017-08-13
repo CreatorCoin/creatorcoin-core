@@ -1,4 +1,4 @@
-BitShares Core
+creatorcoins Core
 ==============
 * [Getting Started](#getting-started)
 * [Support](#support)
@@ -7,12 +7,12 @@ BitShares Core
 * [FAQ](#faq)
 * [License](#license)
 
-BitShares Core is the BitShares blockchain implementation and command-line interface.
-The web wallet is [BitShares UI](https://github.com/creatorcoins/creatorcoins-ui).
+creatorcoins Core is the creatorcoins blockchain implementation and command-line interface.
+The web wallet is [creatorcoins UI](https://github.com/creatorcoins/creatorcoins-ui).
 
-Visit [BitShares.org](https://creatorcoins.org/) to learn about BitShares and join the community at [BitSharesTalk.org](https://creatorcoinstalk.org/).
+Visit [creatorcoins.org](https://creatorcoins.org/) to learn about creatorcoins and join the community at [creatorcoinsTalk.org](https://creatorcoinstalk.org/).
 
-**NOTE:** The official BitShares git repository location, default branch, and submodule remotes were recently changed. Existing
+**NOTE:** The official creatorcoins git repository location, default branch, and submodule remotes were recently changed. Existing
 repositories can be updated with the following steps:
 
     git remote set-url origin https://github.com/creatorcoins/creatorcoins-core.git
@@ -41,9 +41,9 @@ To build after all dependencies are installed:
     cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo .
     make
 
-**NOTE:** BitShares requires an [OpenSSL](https://www.openssl.org/) version in the 1.0.x series. OpenSSL 1.1.0 and newer are NOT supported. If your system OpenSSL version is newer, then you will need to manually provide an older version of OpenSSL and specify it to CMake using `-DOPENSSL_INCLUDE_DIR`, `-DOPENSSL_SSL_LIBRARY`, and `-DOPENSSL_CRYPTO_LIBRARY`.
+**NOTE:** creatorcoins requires an [OpenSSL](https://www.openssl.org/) version in the 1.0.x series. OpenSSL 1.1.0 and newer are NOT supported. If your system OpenSSL version is newer, then you will need to manually provide an older version of OpenSSL and specify it to CMake using `-DOPENSSL_INCLUDE_DIR`, `-DOPENSSL_SSL_LIBRARY`, and `-DOPENSSL_CRYPTO_LIBRARY`.
 
-**NOTE:** BitShares requires a [Boost](http://www.boost.org/) version in the range [1.57, 1.60]. Versions earlier than
+**NOTE:** creatorcoins requires a [Boost](http://www.boost.org/) version in the range [1.57, 1.60]. Versions earlier than
 1.57 or newer than 1.60 are NOT supported. If your system Boost version is newer, then you will need to manually build
 an older version of Boost and specify it to CMake using `DBOOST_ROOT`.
 
@@ -77,11 +77,11 @@ Use `help` to see all available wallet commands. Source definition and listing o
 
 Support
 -------
-Technical support is available in the [BitSharesTalk technical support subforum](https://creatorcoinstalk.org/index.php?board=45.0).
+Technical support is available in the [creatorcoinsTalk technical support subforum](https://creatorcoinstalk.org/index.php?board=45.0).
 
-BitShares Core bugs can be reported directly to the [issue tracker](https://github.com/creatorcoins/creatorcoins-core/issues).
+creatorcoins Core bugs can be reported directly to the [issue tracker](https://github.com/creatorcoins/creatorcoins-core/issues).
 
-BitShares UI bugs should be reported to the [UI issue tracker](https://github.com/creatorcoins/creatorcoins-ui/issues)
+creatorcoins UI bugs should be reported to the [UI issue tracker](https://github.com/creatorcoins/creatorcoins-ui/issues)
 
 Using the API
 -------------
@@ -227,5 +227,5 @@ FAQ
  
 License
 -------
-BitShares Core is under the MIT license. See [LICENSE](https://github.com/creatorcoins/creatorcoins-core/blob/master/LICENSE.txt)
+creatorcoins Core is under the MIT license. See [LICENSE](https://github.com/creatorcoins/creatorcoins-core/blob/master/LICENSE.txt)
 for more information.
