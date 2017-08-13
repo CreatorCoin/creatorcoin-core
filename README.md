@@ -8,14 +8,14 @@ BitShares Core
 * [License](#license)
 
 BitShares Core is the BitShares blockchain implementation and command-line interface.
-The web wallet is [BitShares UI](https://github.com/bitshares/bitshares-ui).
+The web wallet is [BitShares UI](https://github.com/creatorcoins/creatorcoins-ui).
 
-Visit [BitShares.org](https://bitshares.org/) to learn about BitShares and join the community at [BitSharesTalk.org](https://bitsharestalk.org/).
+Visit [BitShares.org](https://creatorcoins.org/) to learn about BitShares and join the community at [BitSharesTalk.org](https://creatorcoinstalk.org/).
 
 **NOTE:** The official BitShares git repository location, default branch, and submodule remotes were recently changed. Existing
 repositories can be updated with the following steps:
 
-    git remote set-url origin https://github.com/bitshares/bitshares-core.git
+    git remote set-url origin https://github.com/creatorcoins/creatorcoins-core.git
     git checkout master
     git remote set-head origin --auto
     git pull
@@ -25,7 +25,7 @@ repositories can be updated with the following steps:
 Getting Started
 ---------------
 Build instructions and additional documentation are available in the
-[wiki](https://github.com/bitshares/bitshares-core/wiki).
+[wiki](https://github.com/creatorcoins/creatorcoins-core/wiki).
 
 We recommend building on Ubuntu 16.04 LTS, and the build dependencies may be installed with:
 
@@ -34,8 +34,8 @@ We recommend building on Ubuntu 16.04 LTS, and the build dependencies may be ins
 
 To build after all dependencies are installed:
 
-    git clone https://github.com/bitshares/bitshares-core.git
-    cd bitshares-core
+    git clone https://github.com/creatorcoins/creatorcoins-core.git
+    cd creatorcoins-core
     git checkout <LATEST_RELEASE_TAG>
     git submodule update --init --recursive
     cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo .
@@ -73,15 +73,15 @@ To import your initial balance:
 If you send private keys over this connection, `rpc-endpoint` should be bound to localhost for security.
 
 Use `help` to see all available wallet commands. Source definition and listing of all commands is available
-[here](https://github.com/bitshares/bitshares-core/blob/master/libraries/wallet/include/graphene/wallet/wallet.hpp).
+[here](https://github.com/creatorcoins/creatorcoins-core/blob/master/libraries/wallet/include/graphene/wallet/wallet.hpp).
 
 Support
 -------
-Technical support is available in the [BitSharesTalk technical support subforum](https://bitsharestalk.org/index.php?board=45.0).
+Technical support is available in the [BitSharesTalk technical support subforum](https://creatorcoinstalk.org/index.php?board=45.0).
 
-BitShares Core bugs can be reported directly to the [issue tracker](https://github.com/bitshares/bitshares-core/issues).
+BitShares Core bugs can be reported directly to the [issue tracker](https://github.com/creatorcoins/creatorcoins-core/issues).
 
-BitShares UI bugs should be reported to the [UI issue tracker](https://github.com/bitshares/bitshares-ui/issues)
+BitShares UI bugs should be reported to the [UI issue tracker](https://github.com/creatorcoins/creatorcoins-ui/issues)
 
 Using the API
 -------------
@@ -148,10 +148,10 @@ With the above configuration, here is an example of how to call `add_node` from 
 Note, the call to `network_node` is necessary to obtain the correct API identifier for the network API.  It is not guaranteed that the network API identifier will always be `2`.
 
 Since the `network_node` API requires login, it is only accessible over the websocket RPC.  Our `doxygen` documentation contains the most up-to-date information
-about API's for the [witness node](https://bitshares.github.io/doxygen/namespacegraphene_1_1app.html) and the
-[wallet](https://bitshares.github.io/doxygen/classgraphene_1_1wallet_1_1wallet__api.html).
+about API's for the [witness node](https://creatorcoins.github.io/doxygen/namespacegraphene_1_1app.html) and the
+[wallet](https://creatorcoins.github.io/doxygen/classgraphene_1_1wallet_1_1wallet__api.html).
 If you want information which is not available from an API, it might be available
-from the [database](https://bitshares.github.io/doxygen/classgraphene_1_1chain_1_1database.html);
+from the [database](https://creatorcoins.github.io/doxygen/classgraphene_1_1chain_1_1database.html);
 it is fairly simple to write API methods to expose database methods.
 
 FAQ
@@ -194,7 +194,7 @@ FAQ
 
     The second number specifies the *type*.  The type of the object determines what fields it has.  For a
     complete list of type ID's, see `enum object_type` and `enum impl_object_type` in
-    [types.hpp](https://github.com/bitshares/bitshares-2/blob/bitshares/libraries/chain/include/graphene/chain/protocol/types.hpp).
+    [types.hpp](https://github.com/creatorcoins/creatorcoins-2/blob/creatorcoins/libraries/chain/include/graphene/chain/protocol/types.hpp).
 
     The third number specifies the *instance*.  The instance of the object is different for each individual
     object.
@@ -207,7 +207,7 @@ FAQ
     do not).
 
     All asset ID's are of the form `1.3.x`.  If you were the 29th asset to be registered,
-    your asset's ID will be `1.3.29`.  Asset `0` is special (it's BTS, which is considered the "core asset").
+    your asset's ID will be `1.3.29`.  Asset `0` is special (it's CREA, which is considered the "core asset").
 
     The first and second number together identify the kind of thing you're talking about (`1.2` for accounts,
     `1.3` for assets).  The third number identifies the particular thing.
@@ -227,5 +227,5 @@ FAQ
  
 License
 -------
-BitShares Core is under the MIT license. See [LICENSE](https://github.com/bitshares/bitshares-core/blob/master/LICENSE.txt)
+BitShares Core is under the MIT license. See [LICENSE](https://github.com/creatorcoins/creatorcoins-core/blob/master/LICENSE.txt)
 for more information.

@@ -24,7 +24,7 @@ sudo apt-get install -yfV libssl-dev openssl build-essential python-dev autotool
 sudo apt-get install -yfV libbz2-dev automake doxygen cmake ncurses-dev libtool nodejs nodejs-legacy npm mc
 sudo apt-get -y autoremove
 
-[ ! -d "bts" ] && mkdir bts && cd bts
+[ ! -d "CREA" ] && mkdir CREA && cd CREA
 [ ! -d "tmp" ] && mkdir tmp
 [ ! -d "build" ] && mkdir build
 
@@ -36,17 +36,17 @@ if [ ! -d "tmp/boost_1_57_0" ]; then
     cd boost_1_57_0/
     ./bootstrap.sh --prefix=/usr/local/ > /dev/null
     sudo ./b2 install > /dev/null
-    cd ~/bts
+    cd ~/CREA
 fi 
   
 if [ ! -d "graphene" ]; then
-  echo_msg "building bitshares graphene toolkit.."  
+  echo_msg "building creatorcoins graphene toolkit.."  
   git clone https://github.com/cryptonomex/graphene.git
   cd graphene
   git submodule update --init --recursive
   cmake .
   make
-  cd ~/bts
+  cd ~/CREA
 fi
 
 if [ ! -d "graphene-ui" ]; then
@@ -57,7 +57,7 @@ if [ ! -d "graphene-ui" ]; then
   cd ../web
   npm install --silent
   npm run-script build
-  cd ~/bts
+  cd ~/CREA
 fi
 
 # ------ shell script end ------
@@ -97,8 +97,8 @@ Vagrant.configure(2) do |config|
     aws.region = "us-east-1"
     aws.ami = 'ami-018c9568'
     aws.instance_type = 'm1.small'
-    aws.security_groups = [ 'bitsharesxt' ]
-    override.vm.hostname = 'bitsharesxt-aws'
+    aws.security_groups = [ 'creatorcoinsxt' ]
+    override.vm.hostname = 'creatorcoinsxt-aws'
     override.ssh.username = 'ubuntu'
     override.ssh.private_key_path = ENV['VAGRANT_KEY_PATH']
     override.vm.box = 'dummy'

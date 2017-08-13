@@ -44,7 +44,7 @@ void database::debug_dump()
    const auto& balance_index = db.get_index_type<account_balance_index>().indices();
    const simple_index<account_statistics_object>& statistics_index = db.get_index_type<simple_index<account_statistics_object>>();
    map<asset_id_type,share_type> total_balances;
-   map<asset_id_type,share_type> total_debts;
+   map<asset_id_type,share_type> total_deCREA;
    share_type core_in_orders;
    share_type reported_core_in_orders;
 
@@ -71,7 +71,7 @@ void database::debug_dump()
       auto col = o.get_collateral();
       if( col.asset_id == asset_id_type() ) core_in_orders += col.amount;
       total_balances[col.asset_id] += col.amount;
-      total_debts[o.get_debt().asset_id] += o.get_debt().amount;
+      total_deCREA[o.get_debt().asset_id] += o.get_debt().amount;
    }
    for( const asset_object& asset_obj : db.get_index_type<asset_index>().indices() )
    {

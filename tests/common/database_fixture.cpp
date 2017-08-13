@@ -155,7 +155,7 @@ void database_fixture::verify_asset_supplies( const database& db )
    const auto& balance_index = db.get_index_type<account_balance_index>().indices();
    const auto& settle_index = db.get_index_type<force_settlement_index>().indices();
    map<asset_id_type,share_type> total_balances;
-   map<asset_id_type,share_type> total_debts;
+   map<asset_id_type,share_type> total_deCREA;
    share_type core_in_orders;
    share_type reported_core_in_orders;
 
@@ -180,7 +180,7 @@ void database_fixture::verify_asset_supplies( const database& db )
       asset col = o.get_collateral();
       if( col.asset_id == asset_id_type() ) core_in_orders += col.amount;
       total_balances[col.asset_id] += col.amount;
-      total_debts[o.get_debt().asset_id] += o.get_debt().amount;
+      total_deCREA[o.get_debt().asset_id] += o.get_debt().amount;
    }
    for( const asset_object& asset_obj : db.get_index_type<asset_index>().indices() )
    {
@@ -201,7 +201,7 @@ void database_fixture::verify_asset_supplies( const database& db )
 
    total_balances[asset_id_type()] += db.get_dynamic_global_properties().witness_budget;
 
-   for( const auto& item : total_debts )
+   for( const auto& item : total_deCREA )
    {
       BOOST_CHECK_EQUAL(item.first(db).dynamic_asset_data_id(db).current_supply.value, item.second.value);
    }

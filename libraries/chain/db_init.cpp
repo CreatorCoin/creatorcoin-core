@@ -449,8 +449,8 @@ void database::init_genesis(const genesis_state_type& genesis_state)
    const auto get_asset_id = [&assets_by_symbol](const string& symbol) {
       auto itr = assets_by_symbol.find(symbol);
 
-      // TODO: This is temporary for handling BTS snapshot
-      if( symbol == "BTS" )
+      // TODO: This is temporary for handling CREA snapshot
+      if( symbol == "CREA" )
           itr = assets_by_symbol.find(GRAPHENE_SYMBOL);
 
       FC_ASSERT(itr != assets_by_symbol.end(),
@@ -460,7 +460,7 @@ void database::init_genesis(const genesis_state_type& genesis_state)
    };
 
    map<asset_id_type, share_type> total_supplies;
-   map<asset_id_type, share_type> total_debts;
+   map<asset_id_type, share_type> total_deCREA;
 
    // Create initial assets
    for( const genesis_state_type::initial_asset_type& asset : genesis_state.initial_assets )
@@ -473,7 +473,7 @@ void database::init_genesis(const genesis_state_type& genesis_state)
       if( asset.is_bitasset )
       {
          int collateral_holder_number = 0;
-         total_debts[ new_asset_id ] = 0;
+         total_deCREA[ new_asset_id ] = 0;
          for( const auto& collateral_rec : asset.collateral_records )
          {
             account_create_operation cop;
@@ -498,7 +498,7 @@ void database::init_genesis(const genesis_state_type& genesis_state)
             });
 
             total_supplies[ asset_id_type(0) ] += collateral_rec.collateral;
-            total_debts[ new_asset_id ] += collateral_rec.debt;
+            total_deCREA[ new_asset_id ] += collateral_rec.debt;
             ++collateral_holder_number;
          }
 
@@ -580,9 +580,9 @@ void database::init_genesis(const genesis_state_type& genesis_state)
       if( it->bitasset_data_id.valid() )
       {
          auto supply_itr = total_supplies.find( it->id );
-         auto debt_itr = total_debts.find( it->id );
+         auto debt_itr = total_deCREA.find( it->id );
          FC_ASSERT( supply_itr != total_supplies.end() );
-         FC_ASSERT( debt_itr != total_debts.end() );
+         FC_ASSERT( debt_itr != total_deCREA.end() );
          if( supply_itr->second != debt_itr->second )
          {
             has_imbalanced_assets = true;
